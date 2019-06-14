@@ -1,0 +1,39 @@
+'''
+STEPPER MOTOR 1
+STP AND DIR
+'''
+
+STP1_PIN = 12
+DIR1_PIN = 13
+
+
+'''
+STEPPER MOTOR 2
+STP AND DIR
+'''
+
+STP2_PIN = 27
+DIR2_PIN = 33
+
+'''
+BUTTON
+'''
+
+# A1
+BUTTON_PIN = 25
+
+'''
+GREEN LED
+'''
+LED_G_PIN = 26
+
+
+'''
+LIGHT SENSOR
+'''
+LIGHT_SENSOR_PIN = 36
+LED_LIGHT_SENSOR_PIN = 32
+
+
+
+
