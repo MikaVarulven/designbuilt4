@@ -97,13 +97,24 @@ class PID:
 
 
 if __name__ == "__main__":
+    import matplotlib.pyplot as plt
     import numpy as np
     import time
+
     errors = np.flip(np.arange(150)**2)
-    errors  = errors + np.random.rand(150)
-    pid_object = PID(P=0.2, I=0, D=0)
+    errors = errors + np.random.rand(150)
+    pid_object = PID(P=0.2, I=1, D=0)
+    tempAxis = []
+    timeAxis = []
     for i in range(len(errors)):
+        timeAxis.append(i/10)
         time.sleep(0.1)
         current_time = time.time()
         pid_object.update(errors[i], current_time)
+        tempAxis.append(pid_object.output)
         print(pid_object.output)
+
+    plt.plot(timeAxis, tempAxis)
+    plt.xlabel('Time/s')
+    plt.ylabel('Temperature')
+    plt.show()
