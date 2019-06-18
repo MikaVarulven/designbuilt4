@@ -2,8 +2,6 @@
 'subscribe.py'
 ==========================
 Subscribes to an Adafruit IO Feed
-
-Author(s): Brent Rubell, Todd Treece for Adafruit Industries
 """
 # Import standard python modules.
 import sys
@@ -12,16 +10,14 @@ import sys
 from Adafruit_IO import MQTTClient
 
 # Set to your Adafruit IO key.
-# Remember, your key is a secret,
-# so make sure not to publish it when you publish this code!
-ADAFRUIT_IO_KEY = 'YOUR_AIO_KEY'
+ADAFRUIT_IO_KEY = 'a8280cf83a7e455485c1c21c528acfec'
 
 # Set to your Adafruit IO username.
 # (go to https://accounts.adafruit.com to find your username)
-ADAFRUIT_IO_USERNAME = 'YOUR_AIO_USERNAME'
+ADAFRUIT_IO_USERNAME ='eyyupoglu'
 
 # Set to the ID of the feed to subscribe to for updates.
-FEED_ID = 'counter'
+FEED_ID = 'temperature'
 
 # Define callback functions which will be called when certain events happen.
 def connected(client):
@@ -30,7 +26,7 @@ def connected(client):
     parameter passed to this function is the Adafruit IO MQTT client so you
     can make calls against it easily.
     """
-    # Subscribe to changes on a feed named Counter.
+    # Subscribe to changes on a feed named temperature.
     print('Subscribing to Feed {0}'.format(FEED_ID))
     client.subscribe(FEED_ID)
     print('Waiting for feed data...')
