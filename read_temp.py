@@ -1,3 +1,4 @@
+import machine
 from machine import Pin
 from machine import ADC
 from machine import DAC
@@ -23,6 +24,7 @@ def init_temp_sensor(TENP_SENS_ADC_PIN_NO = 32):
     return adc
 
 def read_temp(temp_sens):
+    print('Reading temperature')
     raw_read = []
     # Collect NUM_SAMPLES
     for i in range(1, NUM_SAMPLES+1):

@@ -97,6 +97,7 @@ class PID:
 
 
 if __name__ == "__main__":
+    """EXAMple usage guys!, creating artificial errors adn sending them one by one to the class"""
     import matplotlib.pyplot as plt
     import numpy as np
     import time

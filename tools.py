@@ -85,15 +85,15 @@ class Od(object):
         self.sensor.width(3)
 
         # Creates a writeable text file
-        self.f = open('fixedPWM.txt', 'w')
-        self.f.write('FIXED_PWM_VALUE\n')
-        self.f.close()
+        #self.f = open('fixedPWM.txt', 'w')
+        #self.f.write('FIXED_PWM_VALUE\n')
+        #self.f.close()
 
 
     def write_reading_sensor(self):
 
         # opening the text file
-        self.f = open('fixedPWM.txt', 'a+')
+        #self.f = open('fixedPWM.txt', 'a+')
 
         self.od_led.duty(200)
         # self.od_led.duty(0)
@@ -101,11 +101,13 @@ class Od(object):
         avgReading = 0
         for j in range(50000):
             avgReading += self.sensor.read()
-        x = str(avgReading / 50000)
-        self.f.write(x + ',')
+        measurement = avgReading / 50000
+        x = str(measurement)
+        #self.f.write(x + ',')
+##
+        #self.f.close()
 
-        self.f.close()
-
+        return measurement
 
     # def run():
     #
