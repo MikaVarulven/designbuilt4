@@ -1,15 +1,11 @@
 # import test
-import utime
+import utime, time
 import machine
 from constants import *
-#from read_temp import *
+from read_temp import read_temp, init_temp_sensor
 from tools import Stepper, Button, Od, Peltier
-# to_log
-
-
-# file = open('text.txt', 'w')
-# file.write('smt')
-# file.close()
+import main_WEB
+from main_WEB import client, mqtt_feedname_temperature, mqtt_feedname_OD
 
 green_led = machine.Pin(LED_G_PIN, machine.Pin.OUT)
 for i in range(3):
@@ -17,62 +13,36 @@ for i in range(3):
     utime.sleep(1)
     green_led.value(0)
     utime.sleep(1)
-
 button = Button(BUTTON_PIN)
-
-
 step_motor1 = Stepper(STP1_PIN, DIR1_PIN)
 step_motor2 = Stepper(STP2_PIN, DIR2_PIN)
-
 peltier_obj = Peltier(COOLING_PIN)
-
-
-# step_motor2 = Stepper(STP2_PIN, DIR2_PIN)
-# # step_motor2.rotate_some(0)
-#
-#od_sensor1 = Od(LED_LIGHT_SENSOR_PIN, LIGHT_SENSOR_PIN)
-print('here')
-# to_log('fine after init')
-
-
-#temp_sens = init_temp_sensor()
-
-
+od_sensor1 = Od(LED_LIGHT_SENSOR_PIN, LIGHT_SENSOR_PIN)
+temp_sens = init_temp_sensor(TENP_SENS_ADC_PIN_NO = 32)
 
 while True:
-    print('while')
-   # temp = read_temp(temp_sens)
-    #print(str(temp))
-# if statment about the dif between temps
+    try:
+        temp = read_temp(temp_sens)
+        print(str(temp))
+        client.publish(mqtt_feedname_temperature,
+                       bytes(str(temp), 'utf-8'),
+                       qos=0)
+        od_measurement = od_sensor1.write_reading_sensor()
+        print(str(od_measurement))
+        client.publish(mqtt_feedname_OD,
+                       bytes(str(od_measurement), 'utf-8'),
+                       qos=0)
+
+
+    except Exception as e: print(e)
 
     peltier_obj.cooler()
-    step_motor1.rotate_some(1, 10)
-    step_motor1.rotate_some(0, 10)
-    peltier_obj.even_cooler()
-    step_motor2.rotate_some(1, 10)
-    step_motor2.rotate_some(0, 10)
-    #od_sensor1.write_reading_sensor()
-    # time.sleep(0.1)
+    #peltier_obj.even_cooler()
+    step_motor1.rotate_some(1, 100)
+
+    step_motor2.rotate_some(1, 100)
+
+    green_led.value(1)
     if button.is_pressed():
        break
-
-
-
-
-green_led.value(1)
-
-
-# while True:
-#     if button.is_pressed():
-#         green_led.value(0)
-#         break
-#     else:
-#         green_led.value(1)
-#         # time.sleep(2.0)
-#         # print(button.value())
-#         # while not button.is_pressed():
-#         #     green_led.value(1)
-#         #     time.sleep(0.1)
-#         #     green_led.value(0)
-#         #     time.sleep(0.1)
-#         #     to_log('the led should be on')
+green_led.value(0)
