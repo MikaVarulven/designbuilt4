@@ -1,78 +1,88 @@
-# import test
-import utime
-import machine
-from constants import *
-#from read_temp import *
-from tools import Stepper, Button, Od, Peltier
-# to_log
+
+import time
+from robust import MQTTClient
+import os
+import gc
+import sys
+from read_temp import *
+import network
 
 
-# file = open('text.txt', 'w')
-# file.write('smt')
-# file.close()
+# WiFi connection information
+WIFI_SSID = 'Iphone'
+WIFI_PASSWORD = 'mikemike'
 
-green_led = machine.Pin(LED_G_PIN, machine.Pin.OUT)
-for i in range(3):
-    green_led.value(1)
-    utime.sleep(1)
-    green_led.value(0)
-    utime.sleep(1)
+# turn off the WiFi Access Point
+ap_if = network.WLAN(network.AP_IF)
+ap_if.active(False)
 
-button = Button(BUTTON_PIN)
-
-
-step_motor1 = Stepper(STP1_PIN, DIR1_PIN)
-step_motor2 = Stepper(STP2_PIN, DIR2_PIN)
-
-peltier_obj = Peltier(COOLING_PIN)
+# connect the device to the WiFi network
+wifi = network.WLAN(network.STA_IF)
+wifi.active(True)
+wifi.connect(WIFI_SSID, WIFI_PASSWORD)
 
 
-# step_motor2 = Stepper(STP2_PIN, DIR2_PIN)
-# # step_motor2.rotate_some(0)
-#
-#od_sensor1 = Od(LED_LIGHT_SENSOR_PIN, LIGHT_SENSOR_PIN)
-print('here')
-# to_log('fine after init')
+# wait until the device is connected to the WiFi network
+MAX_ATTEMPTS = 20
+attempt_count = 0
+while not wifi.isconnected() and attempt_count < MAX_ATTEMPTS:
+    attempt_count += 1
+    time.sleep(1)
+
+if attempt_count == MAX_ATTEMPTS:
+    print('could not connect to the WiFi network')
+    sys.exit()
+
+# create a random MQTT clientID
+random_num = int.from_bytes(os.urandom(3), 'little')
+mqtt_client_id = bytes('client_'+str(random_num), 'utf-8')
 
 
-#temp_sens = init_temp_sensor()
+ADAFRUIT_IO_URL = b'io.adafruit.com'
+ADAFRUIT_USERNAME = b'Mika007'
+ADAFRUIT_IO_KEY = b'ddfe2bd88e9e46e6bf0fab29ff9dbb96'
+ADAFRUIT_IO_FEEDNAME = b'Temperature'
+
+client = MQTTClient(client_id=mqtt_client_id,
+                    server=ADAFRUIT_IO_URL,
+                    user=ADAFRUIT_USERNAME,
+                    password=ADAFRUIT_IO_KEY,
+                    ssl=False)
+try:
+    client.connect()
+except Exception as e:
+    print('could not connect to MQTT server {}{}'.format(type(e).__name__, e))
+    sys.exit()
+
+mqtt_feedname = bytes('{:s}/feeds/{:s}'.format(ADAFRUIT_USERNAME, ADAFRUIT_IO_FEEDNAME), 'utf-8')
+PUBLISH_PERIOD_IN_SEC = 10
+
+
+def do_subscribed(topic, msg):
+    print((topic, msg))
+
+temp = 8888
+try:
+    temp_sens = init_temp_sensor()
+except:
+    temp = 1
+
 
 
 
 while True:
-    print('while')
-   # temp = read_temp(temp_sens)
-    #print(str(temp))
-# if statment about the dif between temps
-
-    peltier_obj.cooler()
-    step_motor1.rotate_some(1, 10)
-    step_motor1.rotate_some(0, 10)
-    peltier_obj.even_cooler()
-    step_motor2.rotate_some(1, 10)
-    step_motor2.rotate_some(0, 10)
-    #od_sensor1.write_reading_sensor()
-    # time.sleep(0.1)
-    if button.is_pressed():
-       break
-
-
-
-
-green_led.value(1)
-
-
-# while True:
-#     if button.is_pressed():
-#         green_led.value(0)
-#         break
-#     else:
-#         green_led.value(1)
-#         # time.sleep(2.0)
-#         # print(button.value())
-#         # while not button.is_pressed():
-#         #     green_led.value(1)
-#         #     time.sleep(0.1)
-#         #     green_led.value(0)
-#         #     time.sleep(0.1)
-#         #     to_log('the led should be on')
+    try:
+        try:
+            temp = read_temp(temp_sens)
+        except:
+            temp = 2
+        client.publish(mqtt_feedname,    
+                   bytes(str(temp), 'utf-8'),
+                   qos=0)
+        client.set_callback(do_subscribed)
+        #client.subscribe(topic="Mika007/feeds/Temperature")
+        time.sleep(PUBLISH_PERIOD_IN_SEC)
+    except KeyboardInterrupt:
+        print('Ctrl-C pressed...exiting')
+        client.disconnect()
+        sys.exit()
