@@ -69,6 +69,12 @@ mqtt_feedname_I = bytes('{:s}/feeds/{:s}'.format(ADAFRUIT_IO_USERNAME, ADAFRUIT_
 ADAFRUIT_IO_FEEDNAME_D = b'D_controller'
 mqtt_feedname_D = bytes('{:s}/feeds/{:s}'.format(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_FEEDNAME_D), 'utf-8')
 
+ADAFRUIT_IO_FEEDNAME_TEMPERATURE = b'temperature'
+mqtt_feedname_temperature = bytes('{:s}/feeds/{:s}'.format(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_FEEDNAME_TEMPERATURE), 'utf-8')
+
+ADAFRUIT_IO_FEEDNAME_OD = b'OD_sensor'
+mqtt_feedname_od_sensor = bytes('{:s}/feeds/{:s}'.format(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_FEEDNAME_OD), 'utf-8')
+
 
 # Define callback functions which will be called when certain events happen.
 # def connected(client):
@@ -181,3 +187,12 @@ def get_value(client, previous_value):
     if value ==None:
         value = previous_value
     return value
+
+def send_temperature(temp):
+    client.publish(mqtt_feedname_temperature,
+                   bytes(str(temp), 'utf-8'),
+                   qos=0)
+def send_od(od_value):
+    client.publish(mqtt_feedname_od_sensor,
+                   bytes(str(od_value), 'utf-8'),
+                   qos=0)
