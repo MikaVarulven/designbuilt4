@@ -90,7 +90,7 @@ class Od(object):
         #self.f.close()
 
 
-    def write_reading_sensor(self):
+    def get_OD_measurement(self):
 
         # opening the text file
         #self.f = open('fixedPWM.txt', 'a+')
