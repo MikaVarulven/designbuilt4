@@ -17,6 +17,8 @@ green_led = machine.Pin(LED_G_PIN, machine.Pin.OUT)
 
 button = Button(BUTTON_PIN)
 
+
+
 # blink led 3 times just to check that everything is working so far.
 for i in range(3):
     green_led.value(1)
@@ -31,6 +33,7 @@ while True:
         # Publish
         if accum_time >= PUBLISH_PERIOD_IN_SEC:
             print('before temperature')
+            temp_sens = init_temp_sensor()
             temp = read_temp(temp_sens)
             print('after temperature')
 
@@ -47,6 +50,7 @@ while True:
             number_steps = map_action_to_steps(pid_action)
             pump_water.rotate_some(1, number_steps)
             print(P, I, D )
+
 
         time.sleep(SUBSCRIBE_CHECK_PERIOD_IN_SEC)
         accum_time += SUBSCRIBE_CHECK_PERIOD_IN_SEC
