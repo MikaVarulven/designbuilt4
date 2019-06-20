@@ -37,6 +37,7 @@ def read_temp(temp_sens):
 
     # Convert to resistance
     raw_average = ADC_MAX * adc_V_lookup[round(raw_average)]/ADC_Vmax
+    print('LEN adc_V_lookup: %s raw_average %s' %(len(adc_V_lookup), round(raw_average)))
     resistance = (SER_RES * raw_average) / (ADC_MAX - raw_average)
     print('Thermistor resistance: {} ohms'.format(resistance))
 
@@ -44,8 +45,9 @@ def read_temp(temp_sens):
     steinhart  = log(resistance / NOM_RES) / THERM_B_COEFF
     steinhart += 1.0 / (TEMP_NOM + 273.15)
     steinhart  = (1.0 / steinhart) - 273.15
+
+    print('temperature: %s' % steinhart)
     return steinhart
 
 
-temp_sens = init_temp_sensor()
-
+# temp_sens = init_temp_sensor()

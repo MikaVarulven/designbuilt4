@@ -80,10 +80,11 @@ class Od(object):
         self.od_led = machine.PWM(machine.Pin(led_pin), freq=78000)
         self.sensor = machine.ADC(machine.Pin(os_pin))
         # set attenuation at 11db
-        self.sensor.atten(3)
-        # set width to 11 bit
-        self.sensor.width(3)
-
+        # self.sensor.atten(3)
+        # # set width to 11 bit
+        # self.sensor.width(3)
+        self.sensor.atten(machine.ADC.ATTN_11DB)
+        self.sensor.width(machine.ADC.WIDTH_9BIT)
         # Creates a writeable text file
         #self.f = open('fixedPWM.txt', 'w')
         #self.f.write('FIXED_PWM_VALUE\n')
@@ -97,6 +98,7 @@ class Od(object):
 
         self.od_led.duty(200)
         # self.od_led.duty(0)
+        print('OD measuring')
 
         avgReading = 0
         for j in range(50000):
@@ -106,7 +108,8 @@ class Od(object):
         #self.f.write(x + ',')
 ##
         #self.f.close()
-
+        print('OD measured: %s' %(x))
+        self.od_led.duty(0)
         return measurement
 
     # def run():
@@ -131,6 +134,7 @@ class Peltier(object):
         self.peltier = machine.Pin(peltier_pin, machine.Pin.OUT)
 
     def cooler(self):
+        print('cool')
         print('cool')
         self.peltier.value(1)
 

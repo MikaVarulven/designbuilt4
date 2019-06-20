@@ -18,8 +18,6 @@ DIR2_PIN = 27
 '''
 BUTTON
 '''
-
-
 BUTTON_PIN = 15
 
 '''
@@ -31,8 +29,8 @@ LED_G_PIN = 4
 '''
 LIGHT SENSOR
 '''
-#A1
-LIGHT_SENSOR_PIN = 25
+#A2
+LIGHT_SENSOR_PIN = 34
 LED_LIGHT_SENSOR_PIN = 26
 
 '''
