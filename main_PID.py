@@ -52,10 +52,14 @@ while True:
 
         #action of steppermotor depending on intensity
         if -5 <= pid_action <= -4:
-            PWM(stepper1, round(pid_action))
+            PWM(stepper1, round(1000))
+            peltier1.even_cooler()
         elif -4 < pid_action <= -2:
-            PWM(stepper1, round(pid_action))
-
+            PWM(stepper1, round(500))
+            peltier1.even_cooler()
+        elif  -2 < pid_action <= 0:
+            PWM(stepper1, round(350))
+            peltier1.cooler()
 
         print('action: %s' %pid_action)
         print('p: %s' %P)

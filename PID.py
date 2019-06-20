@@ -96,6 +96,17 @@ class PID:
 
 
 
+ def map_action_to_steps(strength):
+    if strength<0:
+        steps = 5
+    elif 0<strength and  strength< 50:
+        steps = 200
+    elif 50 < strength and strength < 100:
+        steps = 400
+    else:
+        steps = 600
+    return steps
+
 if __name__ == "__main__":
     """EXAMple usage guys!, creating artificial errors adn sending them one by one to the class"""
     import matplotlib.pyplot as plt
