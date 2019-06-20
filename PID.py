@@ -117,5 +117,6 @@ if __name__ == "__main__":
 
     plt.plot(timeAxis, tempAxis)
     plt.xlabel('Time/s')
-    plt.ylabel('Temperature')
+    plt.ylabel('PID strength')
     plt.show()
+
