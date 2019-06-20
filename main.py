@@ -35,13 +35,14 @@ while True:
             print('after temperature')
 
             od_value = od_obj.get_OD_measurement()
-            send_temperature(temp)
-            send_od(od_value)
+            send_temperature(temp) #web
+            send_od(od_value) # web
             accum_time = 0
-            P, I, D = get_value(client_P, P), get_value(client_I, I), get_value(client_D, D)
+            P, I, D = get_value(client_P, P), get_value(client_I, I), get_value(client_D, D) #get value from mqtt
             pid_object = PID(float(P), float(I), float(D))
+            pid_object.SetPoint = 19
             print('after pid object')
-            pid_object.update(temp - 19)
+            pid_object.update(temp)
             pid_action = pid_object.output
             number_steps = map_action_to_steps(pid_action)
             pump_water.rotate_some(1, number_steps)
