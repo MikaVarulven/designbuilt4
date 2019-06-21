@@ -96,16 +96,16 @@ class PID:
 
 
 
- def map_action_to_steps(strength):
-    if strength<0:
-        steps = 5
-    elif 0<strength and  strength< 50:
-        steps = 200
-    elif 50 < strength and strength < 100:
-        steps = 400
-    else:
-        steps = 600
-    return steps
+def map_action_to_steps(strength):
+     if strength<0:
+         steps = 5
+     elif 0<strength and  strength< 50:
+         steps = 200
+     elif 50 < strength and strength < 100:
+         steps = 400
+     else:
+         steps = 600
+     return steps
 
 if __name__ == "__main__":
     """EXAMple usage guys!, creating artificial errors adn sending them one by one to the class"""
@@ -113,6 +113,7 @@ if __name__ == "__main__":
     import numpy as np
     import time
 
+    print('you should delete this part')
     errors = np.flip(np.arange(150)**2)
     errors = errors + np.random.rand(150)
     pid_object = PID(P=0.2, I=1, D=0)

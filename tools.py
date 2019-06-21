@@ -28,14 +28,14 @@ class Stepper(object):
             # to_log(1)
             #print('it works4')
 
-            utime.sleep_us(100000)
+            utime.sleep_us(1000)
             #print('it works5')
 
             self.stp.value(0)
             #print('it works6')
 
             # to_log(2)
-            utime.sleep_us(100000)
+            utime.sleep_us(1000)
             # print('it works7')
 
     def rotate_one_step(self, dir):
@@ -61,6 +61,26 @@ class Stepper(object):
         print('it works')
 
 
+class StepperPWM(object):
+    def __init__(self, step_pin, dir_pin):
+        # to_log('init ko')
+        self.stp = machine.Pin(step_pin, machine.Pin.OUT)
+        self.stp = machine.PWM(self.stp)
+        # self.stp.duty(100)
+        self.dir = machine.Pin(dir_pin, machine.Pin.OUT)
+        # to_log('init ok')
+
+    def set_freq(self, freq):
+        self.stp.freq(freq)
+
+    def set_duty(self, duty):
+        self.stp.duty(duty)
+
+    def set_dir(self, dir):
+        self.dir.value(dir)
+
+
+
 def to_log( str_, file_name='text.txt' ):
     file = open(file_name, 'a')
     file.write(' : ' + str(str_)+'\n')
@@ -84,11 +104,15 @@ class Od(object):
         # # set width to 11 bit
         # self.sensor.width(3)
         self.sensor.atten(machine.ADC.ATTN_11DB)
-        self.sensor.width(machine.ADC.WIDTH_9BIT)
+        self.sensor.width(machine.ADC.WIDTH_12BIT)
         # Creates a writeable text file
         #self.f = open('fixedPWM.txt', 'w')
         #self.f.write('FIXED_PWM_VALUE\n')
         #self.f.close()
+
+
+    def set_duty(self, duty):
+        self.od_led.duty(duty)
 
 
     def get_OD_measurement(self):
@@ -96,7 +120,7 @@ class Od(object):
         # opening the text file
         #self.f = open('fixedPWM.txt', 'a+')
 
-        self.od_led.duty(200)
+        # self.set_duty(20)
         # self.od_led.duty(0)
         print('OD measuring')
 
