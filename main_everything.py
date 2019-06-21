@@ -10,7 +10,7 @@ accum_time = 0
 
 od_obj = Od(LED_LIGHT_SENSOR_PIN, LIGHT_SENSOR_PIN)
 
-pump_water = StepperPWM(STP1_PIN, DIR1_PIN)
+pump_water = Stepper(STP1_PIN, DIR1_PIN)
 pump_algae = Stepper(STP2_PIN, DIR2_PIN)
 
 peltier1 = Peltier(COOLING_PIN)
@@ -18,6 +18,7 @@ peltier1 = Peltier(COOLING_PIN)
 green_led = machine.Pin(LED_G_PIN, machine.Pin.OUT)
 
 button = Button(BUTTON_PIN)
+
 
 def set_frequency_with_pid(pid_action):
     if pid_action < -5:
@@ -62,7 +63,10 @@ while True:
             temp = read_temp(temp_sens)
             print('after temperature')
 
-            od_value = od_obj.get_OD_measurement()
+
+
+
+
             send_temperature(temp) #web
             send_od(od_value) # web
             accum_time = 0
