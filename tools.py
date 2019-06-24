@@ -79,6 +79,22 @@ class StepperPWM(object):
     def set_dir(self, dir):
         self.dir.value(dir)
 
+    def map_action_to_frequency(self, pid_action, peltier):
+        pid_action = - pid_action
+        if pid_action > 0:
+            peltier.cooler()
+            self.set_freq(100)
+        elif 0 <= pid_action and pid_action <= 2:
+            peltier.cooler()
+            self.set_freq(1000)
+        elif 2 < pid_action:
+            self.set_freq(2000)
+            peltier.even_cooler()
+        else:
+            peltier.even_cooler()
+            self.set_freq(5000)
+
+
 
 
 def to_log( str_, file_name='text.txt' ):

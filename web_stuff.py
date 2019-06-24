@@ -47,6 +47,49 @@ if attempt_count == MAX_ATTEMPTS:
     print('could not connect to the WiFi network')
     sys.exit()
 
+def handle_wifi(wifi, client1, client2, client3, client4):
+
+    if not wifi.isconnected():
+        # turn off the WiFi Access Point
+        ap_if = network.WLAN(network.AP_IF)
+        ap_if.active(False)
+
+        # connect the device to the WiFi network
+        wifi = network.WLAN(network.STA_IF)
+        wifi.active(True)
+        wifi.connect("device")
+        #
+        # # WiFi connection information
+        # WIFI_SSID = 'device'
+        # WIFI_PASSWORD = 'designbuild4'
+        #
+        # # turn off the WiFi Access Point
+        # ap_if = network.WLAN(network.AP_IF)
+        # ap_if.active(False)
+        #
+        # # connect the device to the WiFi network
+        # wifi = network.WLAN(network.STA_IF)
+        # wifi.active(True)
+        # wifi.connect(WIFI_SSID)
+
+        # wait until the device is connected to the WiFi network
+        MAX_ATTEMPTS = 20
+        attempt_count = 0
+        while not wifi.isconnected() and attempt_count < MAX_ATTEMPTS:
+            attempt_count += 1
+            time.sleep(1)
+
+        if attempt_count == MAX_ATTEMPTS:
+            print('could not connect to the WiFi network')
+            sys.exit()
+
+            #reconnecting clients
+        client1.reconnect()
+        client2.reconnect()
+        client3.reconnect()
+        client4.reconnect()
+
+
 
 print('After connecting to WIFI')
 
@@ -75,6 +118,9 @@ mqtt_feedname_temperature = bytes('{:s}/feeds/{:s}'.format(ADAFRUIT_IO_USERNAME,
 ADAFRUIT_IO_FEEDNAME_OD = b'OD_sensor'
 mqtt_feedname_od_sensor = bytes('{:s}/feeds/{:s}'.format(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_FEEDNAME_OD), 'utf-8')
 
+
+ADAFRUIT_IO_FEEDNAME_PID_SIGNAL = b'pid-signal'
+mqtt_feedname_pid_action = bytes('{:s}/feeds/{:s}'.format(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_FEEDNAME_PID_SIGNAL), 'utf-8')
 
 # Define callback functions which will be called when certain events happen.
 # def connected(client):
@@ -192,7 +238,25 @@ def send_temperature(temp):
     client.publish(mqtt_feedname_temperature,
                    bytes(str(temp), 'utf-8'),
                    qos=0)
+
 def send_od(od_value):
     client.publish(mqtt_feedname_od_sensor,
                    bytes(str(od_value), 'utf-8'),
                    qos=0)
+
+def send_PID_action(pid_action):
+    client.publish(mqtt_feedname_pid_action,
+                   bytes(str(pid_action), 'utf-8'),
+                   qos=0)
+
+
+def send_data_adafruit(last_minute):
+    this_minute = time.localtime()[4]
+    print(last_minute, this_minute)
+    if (this_minute - last_minute) != 0:
+        # print('sending the data ...')
+        # send_PID_action(pid_action, client)
+        # send_temperature(temp, client)
+        # send_od(od_value, client)
+        return True, this_minute
+    return False, last_minute

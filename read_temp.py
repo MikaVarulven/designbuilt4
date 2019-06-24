@@ -42,7 +42,10 @@ def read_temp(temp_sens):
     print('Thermistor resistance: {} ohms'.format(resistance))
 
     # Convert to temperature
-    steinhart  = log(resistance / NOM_RES) / THERM_B_COEFF
+    try:
+        steinhart = log(resistance / NOM_RES) / THERM_B_COEFF
+    except:
+        raise Exception('Check the temperature sensor cables!')
     steinhart += 1.0 / (TEMP_NOM + 273.15)
     steinhart  = (1.0 / steinhart) - 273.15
 
