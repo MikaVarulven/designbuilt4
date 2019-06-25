@@ -3,7 +3,7 @@
     seem weird, please change them if you can :)
 '''
 
-from math import exp
+from math import exp, ceil
 
 ''' ---------------------- Declare Constants ---------------------- '''
 C0 = 895000  # [cells/mL] Initial concentration in the food tank
@@ -59,6 +59,7 @@ while time[-1] < t_Exp:
             t_interval += 1
         else:
             break
+    nStep = ceil(V_add * 765)  # Number of steps that the pump should take
     time += [t_now]
     V_pump += [V_add]
     Volume += [Volume[-1] + V_add]
