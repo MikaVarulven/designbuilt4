@@ -1,88 +1,119 @@
-
-import time
-from robust import MQTTClient
-import os
-import gc
-import sys
+from PID import PID
+from tools import *
+from constants import *
+import utime
 from read_temp import *
-import network
+from web_stuff import *
 
 
-# WiFi connection information
-WIFI_SSID = 'Iphone'
-WIFI_PASSWORD = 'mikemike'
+pump_water = StepperPWM(STP1_PIN, DIR1_PIN)
+pump_water.set_dir(1)
+pump_water.set_freq(0)
+pump_water.set_duty(0)
+pump_algae = Stepper(STP2_PIN, DIR2_PIN)
 
-# turn off the WiFi Access Point
-ap_if = network.WLAN(network.AP_IF)
-ap_if.active(False)
+green_led = machine.Pin(LED_G_PIN, machine.Pin.OUT)
 
-# connect the device to the WiFi network
-wifi = network.WLAN(network.STA_IF)
-wifi.active(True)
-wifi.connect(WIFI_SSID, WIFI_PASSWORD)
+button = Button(BUTTON_PIN)
 
-
-# wait until the device is connected to the WiFi network
-MAX_ATTEMPTS = 20
-attempt_count = 0
-while not wifi.isconnected() and attempt_count < MAX_ATTEMPTS:
-    attempt_count += 1
-    time.sleep(1)
-
-if attempt_count == MAX_ATTEMPTS:
-    print('could not connect to the WiFi network')
-    sys.exit()
-
-# create a random MQTT clientID
-random_num = int.from_bytes(os.urandom(3), 'little')
-mqtt_client_id = bytes('client_'+str(random_num), 'utf-8')
+peltier1 = Peltier(COOLING_PIN)
+peltier1.cooler()
 
 
-ADAFRUIT_IO_URL = b'io.adafruit.com'
-ADAFRUIT_USERNAME = b'Mika007'
-ADAFRUIT_IO_KEY = b'ddfe2bd88e9e46e6bf0fab29ff9dbb96'
-ADAFRUIT_IO_FEEDNAME = b'Temperature'
+print('After imports')
 
-client = MQTTClient(client_id=mqtt_client_id,
-                    server=ADAFRUIT_IO_URL,
-                    user=ADAFRUIT_USERNAME,
-                    password=ADAFRUIT_IO_KEY,
-                    ssl=False)
-try:
-    client.connect()
-except Exception as e:
-    print('could not connect to MQTT server {}{}'.format(type(e).__name__, e))
-    sys.exit()
-
-mqtt_feedname = bytes('{:s}/feeds/{:s}'.format(ADAFRUIT_USERNAME, ADAFRUIT_IO_FEEDNAME), 'utf-8')
-PUBLISH_PERIOD_IN_SEC = 10
+#
+# text_file_od = 'od.txt'
+#
+# text_file = open(text_file_od, 'w')
+# text_file.write('OD \n')
+# text_file.close()
 
 
-def do_subscribed(topic, msg):
-    print((topic, msg))
+P, I, D = 1, 0, 0
 
-temp = 8888
-try:
-    temp_sens = init_temp_sensor()
-except:
-    temp = 1
-
-
-
+pid_object = PID(float(P), float(I), float(D))
 
 while True:
-    try:
-        try:
-            temp = read_temp(temp_sens)
-        except:
-            temp = 2
-        client.publish(mqtt_feedname,    
-                   bytes(str(temp), 'utf-8'),
-                   qos=0)
-        #client.set_callback(do_subscribed)
-        #client.subscribe(topic="Mika007/feeds/Temperature")
-        time.sleep(PUBLISH_PERIOD_IN_SEC)
-    except KeyboardInterrupt:
-        print('Ctrl-C pressed...exiting')
-        client.disconnect()
-        sys.exit()
+    if button.is_pressed():
+        break
+
+def pid_map_freq(pid_action):
+    if pid_action >= 0:
+        peltier1.cooler()
+        pump_water.set_duty(0)
+    elif pid_action < 10:
+        peltier1.even_cooler()
+        pump_water.set_duty(200)
+        # pump_water.set_freq(int(-pid_action*100))
+        pump_water.set_freq(350)
+
+while True:
+    pump_algae.rotate_some(1,100)
+    if button.is_pressed():
+        break
+
+
+P, I, D = 1, 0, 0
+
+last_minute = time.localtime()[4] - 1
+while True:
+
+    handle_wifi(wifi, client_P, client_I, client_D, client)
+
+    # water pump - for some reason, does not work outside the while loop
+
+
+
+
+    # pump_algae.rotate_some(1, 100)
+
+    green_led.value(1)
+    utime.sleep(0.5)
+    green_led.value(0)
+    utime.sleep(0.5)
+
+    # temperature
+    temp_sens = init_temp_sensor()
+    temp = read_temp(temp_sens)
+
+
+    # pid
+    pid_object.SetPoint = 12
+    pid_object.update(temp)
+
+
+
+
+    P, I, D = get_value(client_P, P), get_value(client_I, I), get_value(client_D, D)
+    pid_action = pid_object.output
+    pump_water.map_action_to_frequency(pid_action, peltier1)
+    pump_water.set_dir(1)
+    print('P: %s\tI: %s\tD: %s' %(P, I, D))
+    print('pid action: %s' % pid_action)
+
+
+    # od measurements
+    pump_algae.rotate_some(1, 1000)
+
+    pump_water.set_duty(512)
+
+
+    if send_data_adafruit(last_minute)[0]:
+        od_obj = Od(LED_LIGHT_SENSOR_PIN,
+                    LIGHT_SENSOR_PIN)  # if moved, it changes the bit resolution of the measurement
+        od_obj.set_duty(7)
+        od_value = od_obj.get_OD_measurement()
+        print('od value: %s \n\n' % (od_value))
+        last_minute = send_data_adafruit(last_minute)[1]
+        send_temperature(temp)
+        send_od(od_value)
+        send_PID_action(pid_action)
+
+
+
+    if button.is_pressed():
+        break
+
+green_led.value(0)
+pump_water.set_duty(0)

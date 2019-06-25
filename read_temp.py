@@ -1,3 +1,4 @@
+import machine
 from machine import Pin
 from machine import ADC
 from machine import DAC
@@ -23,6 +24,7 @@ def init_temp_sensor(TENP_SENS_ADC_PIN_NO = 32):
     return adc
 
 def read_temp(temp_sens):
+    print('Reading temperature')
     raw_read = []
     # Collect NUM_SAMPLES
     for i in range(1, NUM_SAMPLES+1):
@@ -35,30 +37,20 @@ def read_temp(temp_sens):
 
     # Convert to resistance
     raw_average = ADC_MAX * adc_V_lookup[round(raw_average)]/ADC_Vmax
+    print('LEN adc_V_lookup: %s raw_average %s' %(len(adc_V_lookup), round(raw_average)))
     resistance = (SER_RES * raw_average) / (ADC_MAX - raw_average)
     print('Thermistor resistance: {} ohms'.format(resistance))
 
     # Convert to temperature
-    steinhart  = log(resistance / NOM_RES) / THERM_B_COEFF
+    try:
+        steinhart = log(resistance / NOM_RES) / THERM_B_COEFF
+    except:
+        raise Exception('Check the temperature sensor cables!')
     steinhart += 1.0 / (TEMP_NOM + 273.15)
     steinhart  = (1.0 / steinhart) - 273.15
+
+    print('temperature: %s' % steinhart)
     return steinhart
 
 
-
-
-print("I'm alive!\n")
-utime.sleep_ms(2000)
-
-temp_sens = init_temp_sensor()
-
-sample_last_ms = 0
-SAMPLE_INTERVAL = 1000
-
-"""
-while (True):
-    if utime.ticks_diff(utime.ticks_ms(), sample_last_ms) >= SAMPLE_INTERVAL:
-        temp = read_temp(temp_sens)
-        print('Thermistor temperature: ' + str(temp))
-        sample_last_ms = utime.ticks_ms()
-"""
+# temp_sens = init_temp_sensor()

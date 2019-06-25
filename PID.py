@@ -96,11 +96,14 @@ class PID:
 
 
 
+
 if __name__ == "__main__":
+    """EXAMple usage guys!, creating artificial errors adn sending them one by one to the class"""
     import matplotlib.pyplot as plt
     import numpy as np
     import time
 
+    print('you should delete this part')
     errors = np.flip(np.arange(150)**2)
     errors = errors + np.random.rand(150)
     pid_object = PID(P=0.2, I=1, D=0)

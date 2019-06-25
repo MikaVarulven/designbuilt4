@@ -1,13 +1,13 @@
 import machine
-import time
+import utime
 from constants import *
 
 
 class Stepper(object):
     def __init__(self, step_pin, dir_pin):
         # to_log('init ko')
-        self.stp = machine.Pin( step_pin, machine.Pin.OUT)
-        self.dir = machine.Pin( dir_pin, machine.Pin.OUT)
+        self.stp = machine.Pin(step_pin, machine.Pin.OUT)
+        self.dir = machine.Pin(dir_pin, machine.Pin.OUT)
         # to_log('init ok')
 
 
@@ -16,27 +16,27 @@ class Stepper(object):
         :param dir:
         :return:
         '''
-        print('it works')
+        print('Rotate')
 
         self.dir.value(dir)
-        print('it works2')
+        #print('it works2')
 
         for i in range(0,times):
-            print('it works3')
+            #print('it works3')
 
             self.stp.value(1)
             # to_log(1)
-            print('it works4')
+            #print('it works4')
 
-            time.sleep(0.001)
-            print('it works5')
+            utime.sleep_us(1000)
+            #print('it works5')
 
             self.stp.value(0)
-            print('it works6')
+            #print('it works6')
 
             # to_log(2)
-            time.sleep(0.001)
-            print('it works7')
+            utime.sleep_us(1000)
+            # print('it works7')
 
     def rotate_one_step(self, dir):
         '''
@@ -51,14 +51,50 @@ class Stepper(object):
         self.stp.value(1)
         print('it works3')
 
-        time.sleep(0.0001)
+        time.sleep(0.1)
         print('it works4')
 
         self.stp.value(0)
         print('it works5')
 
-        time.sleep(0.0001)
+        time.sleep(0.1)
         print('it works')
+
+
+class StepperPWM(object):
+    def __init__(self, step_pin, dir_pin):
+        # to_log('init ko')
+        self.stp = machine.Pin(step_pin, machine.Pin.OUT)
+        self.stp = machine.PWM(self.stp)
+        # self.stp.duty(100)
+        self.dir = machine.Pin(dir_pin, machine.Pin.OUT)
+        # to_log('init ok')
+
+    def set_freq(self, freq):
+        self.stp.freq(freq)
+
+    def set_duty(self, duty):
+        self.stp.duty(duty)
+
+    def set_dir(self, dir):
+        self.dir.value(dir)
+
+    def map_action_to_frequency(self, pid_action, peltier):
+        pid_action = - pid_action
+        if pid_action > 0:
+            peltier.cooler()
+            self.set_freq(100)
+        elif 0 <= pid_action and pid_action <= 2:
+            peltier.cooler()
+            self.set_freq(1000)
+        elif 2 < pid_action:
+            self.set_freq(2000)
+            peltier.even_cooler()
+        else:
+            peltier.even_cooler()
+            self.set_freq(5000)
+
+
 
 
 def to_log( str_, file_name='text.txt' ):
@@ -80,32 +116,41 @@ class Od(object):
         self.od_led = machine.PWM(machine.Pin(led_pin), freq=78000)
         self.sensor = machine.ADC(machine.Pin(os_pin))
         # set attenuation at 11db
-        self.sensor.atten(3)
-        # set width to 11 bit
-        self.sensor.width(3)
-
+        # self.sensor.atten(3)
+        # # set width to 11 bit
+        # self.sensor.width(3)
+        self.sensor.atten(machine.ADC.ATTN_11DB)
+        self.sensor.width(machine.ADC.WIDTH_12BIT)
         # Creates a writeable text file
-        self.f = open('fixedPWM.txt', 'w')
-        self.f.write('FIXED_PWM_VALUE\n')
-        self.f.close()
+        #self.f = open('fixedPWM.txt', 'w')
+        #self.f.write('FIXED_PWM_VALUE\n')
+        #self.f.close()
 
 
-    def write_reading_sensor(self):
+    def set_duty(self, duty):
+        self.od_led.duty(duty)
+
+
+    def get_OD_measurement(self):
 
         # opening the text file
-        self.f = open('fixedPWM.txt', 'a+')
+        #self.f = open('fixedPWM.txt', 'a+')
 
-        self.od_led.duty(200)
+        # self.set_duty(20)
         # self.od_led.duty(0)
+        print('OD measuring')
 
         avgReading = 0
         for j in range(50000):
             avgReading += self.sensor.read()
-        x = str(avgReading / 50000)
-        self.f.write(x + ',')
-
-        self.f.close()
-
+        measurement = avgReading / 50000
+        x = str(measurement)
+        #self.f.write(x + ',')
+##
+        #self.f.close()
+        print('OD measured: %s' %(x))
+        self.od_led.duty(0)
+        return measurement
 
     # def run():
     #
@@ -124,7 +169,18 @@ class Od(object):
     #
     #     f.close()
 
+class Peltier(object):
+    def __init__(self, peltier_pin):
+        self.peltier = machine.Pin(peltier_pin, machine.Pin.OUT)
 
+    def cooler(self):
+        print('cool')
+        print('cool')
+        self.peltier.value(1)
+
+    def even_cooler(self):
+        print('even cooler')
+        self.peltier.value(0)
 
 '''
 DELETE THIS

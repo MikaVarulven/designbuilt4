@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/Design Build 4 - Mussel.iml" filepath="$PROJECT_DIR$/.idea/Design Build 4 - Mussel.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/designbuilt4.iml" filepath="$PROJECT_DIR$/.idea/designbuilt4.iml" />
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
     </modules>
   </component>
 </project>

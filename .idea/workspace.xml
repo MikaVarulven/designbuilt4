@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="c8f1b7e7-797b-47ad-b901-f7248e507c8f" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/Design Build 4 - Mussel.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
@@ -9,6 +10,13 @@
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Pump_Volume.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PID.py" beforeDir="false" afterPath="$PROJECT_DIR$/PID.py" afterDir="false" />
+=======
+    <list default="true" id="82cda218-a5aa-4c17-becc-3dab264a932b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/PID.py" beforeDir="false" afterPath="$PROJECT_DIR$/PID.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_everything.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools.py" afterDir="false" />
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,14 +27,25 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/PID.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-950">
               <caret line="48" column="11" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
+=======
+        <entry file="file://$PROJECT_DIR$/main_everything.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/robust.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -34,27 +53,58 @@
               <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/sensor_and_led.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
+=======
+        <entry file="file://$PROJECT_DIR$/simple.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="518">
+              <caret line="191" column="28" lean-forward="true" selection-start-line="191" selection-start-column="28" selection-end-line="191" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+                <element signature="e#117#121#0" />
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Pump_Volume.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2349">
+              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#896#1241#0" />
+              </folding>
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
             </state>
           </provider>
         </entry>
@@ -68,38 +118,119 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+=======
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>temp</find>
+      <find>call</find>
+      <find>cb</find>
+      <find>cv</find>
+      <find>out</find>
+      <find>pid</find>
+      <find>latest_msg</find>
+      <find>adc_V_lookup</find>
+      <find>pel</find>
+      <find>ADC</find>
+      <find>33</find>
+      <find>peltier1</find>
+      <find>od</find>
+      <find>duty</find>
+      <find>freq</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="mika" />
+      </map>
+    </option>
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/PID.py" />
         <option value="$PROJECT_DIR$/Pump_Volume.py" />
+=======
+        <option value="$PROJECT_DIR$/sensor_and_led.py" />
+        <option value="$PROJECT_DIR$/subsrcibe.py" />
+        <option value="$PROJECT_DIR$/main_web_test.py" />
+        <option value="$PROJECT_DIR$/main_WEB.py" />
+        <option value="$PROJECT_DIR$/mainteste.py" />
+        <option value="$PROJECT_DIR$/mqtt_client.py" />
+        <option value="$PROJECT_DIR$/mqtt/test_laptop.py" />
+        <option value="$PROJECT_DIR$/mqtt/main.py" />
+        <option value="$PROJECT_DIR$/simple.py" />
+        <option value="$PROJECT_DIR$/web_stuff.py" />
+        <option value="$PROJECT_DIR$/main_19_may.py" />
+        <option value="$PROJECT_DIR$/read_temp.py" />
+        <option value="$PROJECT_DIR$/main_PID.py" />
+        <option value="$PROJECT_DIR$/PID.py" />
+        <option value="$PROJECT_DIR$/constants.py" />
+        <option value="$PROJECT_DIR$/main_everything.py" />
+        <option value="$PROJECT_DIR$/tools.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+      </list>
+    </option>
+  </component>
+  <component name="MicroPythonDevices" devicePath="COM5" />
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/designbuilt4.iml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/.idea/libraries/MicroPython.xml" />
+        <option value="$PROJECT_DIR$/.idea/libraries/XBee_MicroPython.xml" />
+        <option value="$PROJECT_DIR$/.idea/libraries/MicroPython2.xml" />
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+<<<<<<< HEAD
     <option name="x" value="952" />
     <option name="width" value="977" />
     <option name="height" value="1088" />
+=======
+    <option name="x" value="36" />
+    <option name="y" value="125" />
+    <option name="width" value="974" />
+    <option name="height" value="1057" />
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
+      <pane id="Scope" />
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
+<<<<<<< HEAD
               <item name="Design Build 4 - Mussel" type="b2602c69:ProjectViewProjectNode" />
               <item name="Design Build 4 - Mussel" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="designbuilt4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="designbuilt4" type="462c0819:PsiDirectoryNode" />
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="Scope" />
     </panes>
   </component>
@@ -108,6 +239,27 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Anaconda3/python.exe" />
     <property name="settings.editor.selected.configurable" value="Errors" />
+=======
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.digi.micropython.compile_sources" value="false" />
+    <property name="com.digi.micropython.xbee_platform" value="Digi XBee3 Zigbee 3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.micropython.configurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Victor\Google Drive\DTU\06.5 DB4\designbuilt4" />
+      <recent name="C:\Users\Victor\Google Drive\DTU\06.5 DB4\designbuilt4\mqtt" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Victor\Google Drive\DTU\06.5 DB4\designbuilt4" />
+    </key>
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -121,6 +273,7 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Python.Pump_Volume">
     <configuration name="PID" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Design Build 4 - Mussel" />
@@ -162,12 +315,41 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+=======
+  <component name="RunManager" selected="MicroPython.Flash main.py">
+    <configuration name="Flash PID.py" type="MicroPythonConfigurationType" factoryName="MicroPython" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/PID.py">
+      <module name="designbuilt4" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flash constants.py" type="MicroPythonConfigurationType" factoryName="MicroPython" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/constants.py">
+      <module name="designbuilt4" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flash main_everything.py" type="MicroPythonConfigurationType" factoryName="MicroPython" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/main_everything.py">
+      <module name="designbuilt4" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flash main.py" type="MicroPythonConfigurationType" factoryName="MicroPython" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/main.py">
+      <module name="designbuilt4" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flash tools.py" type="MicroPythonConfigurationType" factoryName="MicroPython" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/tools.py">
+      <module name="designbuilt4" />
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Python.Pump_Volume" />
         <item itemvalue="Python.PID" />
+=======
+        <item itemvalue="MicroPython.Flash main.py" />
+        <item itemvalue="MicroPython.Flash tools.py" />
+        <item itemvalue="MicroPython.Flash main_everything.py" />
+        <item itemvalue="MicroPython.Flash constants.py" />
+        <item itemvalue="MicroPython.Flash PID.py" />
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
       </list>
     </recent_temporary>
   </component>
@@ -176,6 +358,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="c8f1b7e7-797b-47ad-b901-f7248e507c8f" name="Default Changelist" comment="" />
       <created>1560778257520</created>
       <option name="number" value="Default" />
@@ -212,32 +395,390 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-950">
           <caret line="48" column="11" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
+=======
+      <changelist id="82cda218-a5aa-4c17-becc-3dab264a932b" name="Default Changelist" comment="" />
+      <created>1560514801997</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560514801997</updated>
+      <workItem from="1560514811970" duration="3155000" />
+      <workItem from="1560523382796" duration="230000" />
+      <workItem from="1560857398409" duration="6934000" />
+      <workItem from="1560864669289" duration="784000" />
+      <workItem from="1560865514777" duration="115000" />
+      <workItem from="1560865657001" duration="44000" />
+      <workItem from="1560865724791" duration="505000" />
+      <workItem from="1560866256194" duration="3559000" />
+      <workItem from="1560929877726" duration="11944000" />
+      <workItem from="1560947563535" duration="8949000" />
+      <workItem from="1560957350504" duration="1545000" />
+      <workItem from="1561014456431" duration="12903000" />
+      <workItem from="1561031522985" duration="8923000" />
+      <workItem from="1561053941413" duration="428000" />
+      <workItem from="1561100686830" duration="17762000" />
+    </task>
+    <task id="LOCAL-00001" summary="working version of the tools constants etc">
+      <created>1560522256352</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1560522256352</updated>
+    </task>
+    <task id="LOCAL-00002" summary="new file for subscribe - test">
+      <created>1560859328854</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1560859328854</updated>
+    </task>
+    <task id="LOCAL-00003" summary="new file for subscribe - test">
+      <created>1560866152627</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1560866152627</updated>
+    </task>
+    <task id="LOCAL-00004" summary="for daniel &lt;3">
+      <created>1560951839947</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1560951839947</updated>
+    </task>
+    <task id="LOCAL-00005" summary="working version, web interface">
+      <created>1560953067430</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1560953067430</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Idk">
+      <created>1560953112766</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1560953112766</updated>
+    </task>
+    <task id="LOCAL-00007" summary="deleted unncecessary stuffs">
+      <created>1560953187765</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1560953187765</updated>
+    </task>
+    <task id="LOCAL-00008" summary="deleted unncecessary stuffs">
+      <created>1560954976253</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1560954976253</updated>
+    </task>
+    <task id="LOCAL-00009" summary="main file.">
+      <created>1561015778932</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1561015778932</updated>
+    </task>
+    <task id="LOCAL-00010" summary="main file.">
+      <created>1561017932480</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1561017932480</updated>
+    </task>
+    <task id="LOCAL-00011" summary="main file.">
+      <created>1561022186382</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1561022186382</updated>
+    </task>
+    <task id="LOCAL-00012" summary="updated pins">
+      <created>1561026898775</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1561026898775</updated>
+    </task>
+    <task id="LOCAL-00013" summary="working versions of constants, read_temp and tools">
+      <created>1561031682588</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1561031682588</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="pytest_in_test_laptop_py - 2019.06.19 at 10h 19m 00s.xml">
+      <configuration name="pytest in test_laptop.py" configurationId="tests" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="77780000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.13752665" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3290461" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3601286" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978564" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3290461" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3290461" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3858521" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3290461" />
+      <window_info anchor="bottom" id="XBee REPL Console" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.32995737" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" x="0" y="0" width="434" height="866" id="Documentation" order="5" side_tool="true" weight="0.32995737" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13752665" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3290461" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3601286" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978564" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3290461" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3290461" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3858521" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3290461" />
+      <window_info anchor="bottom" id="XBee REPL Console" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.32995737" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" x="0" y="0" width="434" height="866" id="Documentation" order="5" side_tool="true" weight="0.32995737" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="working version of the tools constants etc" />
+    <MESSAGE value="new file for subscribe - test" />
+    <MESSAGE value="for daniel &lt;3" />
+    <MESSAGE value="working version, web interface" />
+    <MESSAGE value="Idk" />
+    <MESSAGE value="deleted unncecessary stuffs" />
+    <MESSAGE value="main file." />
+    <MESSAGE value="updated pins" />
+    <MESSAGE value="working versions of constants, read_temp and tools" />
+    <option name="LAST_COMMIT_MESSAGE" value="working versions of constants, read_temp and tools" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/designbuilt4$pytest_in_test_laptop_py.coverage" NAME="pytest in test_laptop.py Coverage Results" MODIFIED="1560932249284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mqtt" />
+    <SUITE FILE_PATH="coverage/designbuilt4$subsrcibe.coverage" NAME="subsrcibe Coverage Results" MODIFIED="1560862656593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/robust.py">
+    <entry file="file://$PROJECT_DIR$/main_measure_OD.py" />
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/_jb_pytest_runner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="81">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mqtt/mqtt_client.py" />
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/python_stubs/1353405187/_socket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="631" column="8" selection-start-line="631" selection-start-column="8" selection-end-line="631" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainmain.py" />
+    <entry file="file://$PROJECT_DIR$/main_web_test.py" />
+    <entry file="file://$PROJECT_DIR$/subscribe_test.py" />
+    <entry file="file://$PROJECT_DIR$/test_laptop.py" />
+    <entry file="file://$PROJECT_DIR$/subsrcibe.py" />
+    <entry file="file://$PROJECT_DIR$/main_WEB.py" />
     <entry file="file://$PROJECT_DIR$/sensor_and_led.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="264">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_PLUGINS_DIR$/intellij-micropython/typehints/micropython/machine.pyi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19923">
+          <caret line="36" column="48" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/read_temp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PID.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="98" column="4" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="191" column="28" lean-forward="true" selection-start-line="191" selection-start-column="28" selection-end-line="191" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#117#121#0" />
+          </folding>
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/robust.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="357">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+=======
+        <state relative-caret-position="378">
+          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/sensor_and_led.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_19_may.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+          <folding>
+            <element signature="e#14#32#0" expanded="true" />
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Pump_Volume.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+=======
+    <entry file="file://$PROJECT_DIR$/web_stuff.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="153" selection-start-line="153" selection-end-line="154" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_PID.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1539">
+          <caret line="57" column="35" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_Dainel_is_the_man.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2349">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#896#1241#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_everything.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+>>>>>>> f6e5a30c24bb5e706423183a569787317d28caf1
         </state>
       </provider>
     </entry>
